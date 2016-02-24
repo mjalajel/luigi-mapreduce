@@ -9,7 +9,7 @@ class Mapper(luigi.Task):
     def output(self):
         outputs=[]
         for i in xrange(self.factor):
-            fname='1-part-{0:02d}.txt'.format(i)
+            fname='a-part-{0:02d}.txt'.format(i)
             #print 'JALAJEL -- defined {} as output'.format(fname)
             out = luigi.LocalTarget(fname)
             outputs.append(out)

@@ -3,7 +3,7 @@
 import luigi
 import csv
 
-from mapper import Mapper
+from a_mapper import Mapper
 
 class Transformer(luigi.Task):
     myid = luigi.IntParameter()
@@ -12,7 +12,7 @@ class Transformer(luigi.Task):
         return Mapper()
 
     def output(self):
-        fname='2-transformed-{0:02d}.txt'.format(self.myid)
+        fname='b-transformed-{0:02d}.txt'.format(self.myid)
         return luigi.LocalTarget(fname)
 
     def run(self):

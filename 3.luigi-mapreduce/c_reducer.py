@@ -1,7 +1,7 @@
 #!/usr/bin/env python2.7
 
 import luigi
-from transformer import Transformer
+from b_transformer import Transformer
 
 class Reducer(luigi.Task):
     myid = luigi.IntParameter()
@@ -10,7 +10,7 @@ class Reducer(luigi.Task):
         return Transformer(myid=self.myid)
 
     def output(self):
-        fname='3-solved-{0:02d}.txt'.format(self.myid)
+        fname='c-solved-{0:02d}.txt'.format(self.myid)
         return luigi.LocalTarget(fname)
 
     def run(self):

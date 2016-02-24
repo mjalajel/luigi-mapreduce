@@ -1,7 +1,7 @@
 #!/usr/bin/env python2.7
 
 import luigi
-from reducer import Reducer
+from c_reducer import Reducer
 
 class Collector(luigi.Task):
     slaves = luigi.IntParameter()
@@ -13,7 +13,7 @@ class Collector(luigi.Task):
         return deps
 
     def output(self):
-        fname='4.solution.txt'
+        fname='d-solution.txt'
         return luigi.LocalTarget(fname)
 
     def run(self):
