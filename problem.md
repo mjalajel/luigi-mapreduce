@@ -5,7 +5,7 @@ Create a map-reduce job to find the max number for the 1st field in a large csv 
 
 ## Components
 
-- mapper:
+-  1x mapper:
     - input: 0.large-file.txt
     - output: 1.part-00.txt … part-09.txt
 - 10x transformer:
@@ -14,7 +14,7 @@ Create a map-reduce job to find the max number for the 1st field in a large csv 
 - 10x reducer:
     - input: transformed-xx.txt
     - output: 3.solved-xx.txt
-- collector:
+-  1x collector:
     - input: solved-xx.txt
     - output: 4.solution.txt
 
