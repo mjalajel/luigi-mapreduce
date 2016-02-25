@@ -3,7 +3,7 @@ import luigi
 import math
 
 class Mapper(luigi.Task):
-    infile = luigi.Parameter()
+    infile = luigi.Parameter(always_in_help=True)
     factor = luigi.IntParameter()
 
     def output(self):

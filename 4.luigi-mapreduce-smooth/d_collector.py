@@ -5,16 +5,14 @@ from a_mapper import Mapper
 from c_reducer import Reducer
 
 class Collector(luigi.Task):
-    slaves = luigi.IntParameter()
-    infile = luigi.Parameter()
-    factor = luigi.IntParameter()
+    factor = luigi.IntParameter(always_in_help=True)
 
     def requires(self):
         deps={
-            'mapper': Mapper(infile=self.infile, factor=self.factor),
+            'mapper': Mapper(factor=self.factor),
             'reducers': []
         }
-        for i in xrange(self.slaves):
+        for i in xrange(self.factor):
             dep = Reducer(i)
             deps['reducers'].append(dep)
         return deps

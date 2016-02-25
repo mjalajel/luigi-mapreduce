@@ -4,10 +4,11 @@ import luigi
 from b_transformer import Transformer
 
 class Reducer(luigi.Task):
-    myid = luigi.IntParameter()
+    myid   = luigi.IntParameter()
+    factor = luigi.IntParameter()
 
     def requires(self):
-        return Transformer(myid=self.myid)
+        return Transformer(myid=self.myid, factor=self.factor)
 
     def output(self):
         fname='c-solved-{0:02d}.txt'.format(self.myid)

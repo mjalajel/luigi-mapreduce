@@ -4,11 +4,11 @@ import luigi
 from c_reducer import Reducer
 
 class Collector(luigi.Task):
-    slaves = luigi.IntParameter()
+    factor = luigi.IntParameter(always_in_help=True)
     def requires(self):
         deps=[]
-        for i in xrange(self.slaves):
-            dep = Reducer(i)
+        for i in xrange(self.factor):
+            dep = Reducer(myid=i, factor=self.factor)
             deps.append(dep)
         return deps
 

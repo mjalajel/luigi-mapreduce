@@ -4,7 +4,7 @@ import math
 import time
 
 class Mapper(luigi.Task):
-    infile = luigi.Parameter()
+    infile = luigi.Parameter(always_in_help=True)
     factor = luigi.IntParameter()
     priority = 1000
 
@@ -62,7 +62,7 @@ class Waiter(luigi.Task):
         while True:
             if self.output().exists():
                 break
-            time.sleep(3)
+            time.sleep(1)
 
 if __name__ == '__main__':
   luigi.run()
