@@ -10,11 +10,11 @@ class Mapper(luigi.Task):
         outputs=[]
         for i in xrange(self.factor):
             fname='a-part-{0:02d}.txt'.format(i)
-            #print 'JALAJEL -- defined {} as output'.format(fname)
+            #print 'MYLOG -- defined {} as output'.format(fname)
             out = luigi.LocalTarget(fname)
             outputs.append(out)
 
-        #print 'JALAJEL -- defined', len(outputs), 'outputs'
+        #print 'MYLOG -- defined', len(outputs), 'outputs'
         return outputs
 
     def run(self):
@@ -31,13 +31,13 @@ class Mapper(luigi.Task):
             line_num=float(0)
             for line in myinput:
                 #refresh output, if needed
-                #print 'JALAJEL -- (line_num={} / bulk_size={})={} > index={} (of {} indices)'.format( line_num, bulk_size, int(line_num / bulk_size), index, max_index)
+                #print 'MYLOG -- (line_num={} / bulk_size={})={} > index={} (of {} indices)'.format( line_num, bulk_size, int(line_num / bulk_size), index, max_index)
                 if int(line_num / bulk_size) > index:
                     myoutput.close()
                     index += 1
-                    #print 'JALAJEL -- resetting output to file#{} / {} total outputs'.format(index, count_outputs)
+                    #print 'MYLOG -- resetting output to file#{} / {} total outputs'.format(index, count_outputs)
                     myoutput = self.output()[index].open('w')
-                #print 'JALAJEL -- line#{} directed to file#{}'.format(line_num, index)
+                #print 'MYLOG -- line#{} directed to file#{}'.format(line_num, index)
                 myoutput.write(line)
                 line_num += 1
             myoutput.close()
