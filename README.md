@@ -20,5 +20,5 @@ Create a map-reduce job to find the max number for the 1st field in a large csv 
     - output: 4.solution.txt
 
 ## Challenges:
-1. All transformers and groupers should run in parallel
-2. Transformers and groups should start working before mapper finishes
+1. All transformers and groupers should run in parallel [resolved in `3.luigi-mapreduce` ]
+2. Transformers and groups should start working before mapper finishes [resolved with a hack in `4.luigi-mapreduce-smooth`]
